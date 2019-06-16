@@ -1,12 +1,14 @@
-def bubble(arr, N):
-    alg_count = [0, 0]
-    for i in range(N - 1):
-        alg_count[0] += 1
-        j = 0
-        for j in range(N - 1 - i):
-            if arr[j] > arr[j + 1]:
+def bubble(arr, dim):
+    alg_count = [0, 0]  # Массив для показателей эффективности
+    for i in range(dim - 1):  # Основной цикл для всех элементов
+        for j in range(dim - i - 1):  # Цикл для оставшейся части меньших элементов
+            alg_count[0] += 1
+            if arr[j] > arr[j + 1]:  # Сравниваем элементы
                 arr[j], arr[j + 1] = arr[j + 1], arr[j]
-            j += 1
-            alg_count[1] += 1
-        i += 1
-    return alg_count
+                alg_count[1] += 1
+    print(alg_count)
+import random
+arry = [random.randint(0, 20) for i in range(20)]
+print(arry)
+bubble(arry, len(arry))
+print(arry)
